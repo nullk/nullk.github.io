@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'GillSansMT';
+    src: url('../fonts/GillSansMT.eot');
+    src: url('../fonts/GillSansMT.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GillSansMT.woff') format('woff'),
+        url('../fonts/GillSansMT.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BemboStd';
+    src: url('../fonts/BemboStd-SemiboldItalic.eot');
+    src: url('../fonts/BemboStd-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/BemboStd-SemiboldItalic.woff') format('woff'),
+        url('../fonts/BemboStd-SemiboldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+body, html {
+    text-align: center;
+}
+
+#canvas-wrapper {
+    position: relative;
+    margin-top: 32px;
+    max-width: 500px;
+    max-height: 775px;
+    width: 500px;
+    height: 775px;
+    overflow: hidden;
+}
+#canvas-wrapper img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#canvas-wrapper #cover_photo {
+    z-index: -1;
+}
+
+#canvas {
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#controls {
+    font-family: 'BemboStd';
+}
+#controls h1 {
+    background-color: #EB5530;
+    color: white;
+    padding: 5px;
+}
+
+.thumb {
+    display: none;
+}

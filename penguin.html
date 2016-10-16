@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Penguin Classics Cover Generator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+     <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+</head>
+
+<body>
+    <div style="font-family: GillSansMT;"></div>
+    <div style="font-family: BemboStd;"></div>
+
+    <div class="container">
+    <div class="row">
+        <div class="col s6">
+        <div id="controls">
+            <h1>Penguin Classics Cover Generator</h1>
+            <input type="text" placeholder="Link to cover image" id="image_url"></input>
+            <input type="submit" onclick="update_cover()" value="Submit"></input>
+            <br />
+            <br />
+            Width: <input type="range" onclick="scale_image()" id="width_range" value="50">
+            <br />
+            Height: <input type="range" onclick="scale_image()" id="height_range" value="50">
+            <br />
+            X: <input type="range" onclick="translate_image()" id="x_range" min="-100" max="100" value="0">
+            <br />
+            Y: <input type="range" onclick="translate_image()" id="y_range" min="-100" max="100" value="0">
+            <br />
+
+            <input type="text" placeholder="Author" id="author"></input>
+            <br />
+            <input type="text" placeholder="Title" id="title"></input>
+        </div>
+        </div>
+
+        <div class="col s6">
+        <div id="canvas-wrapper">
+            <img id="template" width="500" height="775" src="template.png"></img>
+            <img id="cover_photo" width="500" height="533"></img>
+            <canvas id="canvas" width="500" height="775"></canvas>
+        </div>
+        </div>
+        
+        <script src="js/main.js" type="text/javascript"></script>
+    </div>
+    </div>
+</body>
+</html>
