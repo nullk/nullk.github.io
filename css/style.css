@@ -30,14 +30,12 @@ body, html {
     width: 500px;
     height: 775px;
     overflow: hidden;
+    border: 1px solid gray;
 }
 #canvas-wrapper img {
     position: absolute;
     top: 0px;
     left: 0px;
-}
-#canvas-wrapper #cover_photo {
-    z-index: -1;
 }
 
 #canvas {
@@ -46,17 +44,34 @@ body, html {
     top: 0px;
     left: 0px;
 }
-
-#controls {
-    font-family: 'BemboStd';
+#canvas-wrapper #photo_canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -2;
 }
+#canvas-wrapper #bg_canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
 #controls h1 {
+    font-family: 'BemboStd';
     background-color: #EB5530;
     color: white;
     padding: 5px;
 }
 
 .thumb {
+    display: none;
+}
+
+#temp-canvas {
+    display: none;
+}
+#temp-image {
     display: none;
 }
 

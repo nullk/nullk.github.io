@@ -10,7 +10,7 @@
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
-
+    <script src="js/dropzone.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css"></link>
 </head>
 
@@ -22,35 +22,51 @@
     <div class="row">
         <div class="col s6">
         <div id="controls">
-            <h1>Penguin Classics Cover Generator</h1>
-            <input type="text" placeholder="Link to cover image" id="image_url"></input>
-            <input type="submit" onclick="update_cover()" value="Submit"></input>
+        <h1>Penguin Classics Cover Generator</h1>
+            <form action="#">
+            <div class="file-field input-field">
+                <div class="btn blue-grey darken-4">
+                        <span>File</span>
+                        <input type="file" onchange="update_cover(photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'], 
+                            cover_properties['width'], cover_properties['height'])">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                    </div>
+                </div>
+            </form>
+
             <br />
+            Width: <input type="range" class="range-field" oninput="scale_image(photo_canvas, photo_ctx)" id="width_range" value="50">
             <br />
-            Width: <input type="range" onclick="scale_image()" id="width_range" value="50">
+            Height: <input type="range" class="range-field" oninput="scale_image(photo_canvas, photo_ctx)" id="height_range" value="50">
             <br />
-            Height: <input type="range" onclick="scale_image()" id="height_range" value="50">
+            X: <input type="range" class="range-field" oninput="translate_image(photo_canvas, photo_ctx)" id="x_range" min="-100" max="100" value="0">
             <br />
-            X: <input type="range" onclick="translate_image()" id="x_range" min="-100" max="100" value="0">
-            <br />
-            Y: <input type="range" onclick="translate_image()" id="y_range" min="-100" max="100" value="0">
+            Y: <input type="range" class="range-field" oninput="translate_image(photo_canvas, photo_ctx)" id="y_range" min="-100" max="100" value="0">
             <br />
 
             <input type="text" placeholder="Author" id="author"></input>
             <br />
             <input type="text" placeholder="Title" id="title"></input>
+
+            <button class="waves-effect waves-light btn-large blue-grey darken-4" onclick="download_canvas(bg_canvas, photo_canvas, canvas)">Download</button>
         </div>
         </div>
 
         <div class="col s6">
         <div id="canvas-wrapper">
-            <img id="template" width="500" height="775" src="template.png"></img>
-            <img id="cover_photo" width="500" height="533"></img>
+            <canvas id="photo_canvas" width="500" height="533"></canvas>
+            <canvas id="bg_canvas" width="500" height="775"></canvas>
             <canvas id="canvas" width="500" height="775"></canvas>
+            <canvas id="dl_canvas" width="500" height="775"></canvas>
         </div>
         </div>
         
         <script src="js/main.js" type="text/javascript"></script>
+    </div>
+    <div class="row">
+        <h6>Submit issues <a href="https://github.com/nullk/nullk.github.io/issues">here</a>.</h6>
     </div>
     </div>
 </body>
