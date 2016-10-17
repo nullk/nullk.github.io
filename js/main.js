@@ -89,9 +89,9 @@ function draw_author(ctx) {
     }
 
     ctx.textBaseline = 'alphabetic';
-    ctx.fillStyle = '#D28928';
+    ctx.fillStyle = '#C6422C';
     ctx.textAlign = 'center'
-    ctx.fillText(author, canvas.width / 2, 655);
+    ctx.fillText(author, canvas.width / 2, 651);
 }
 
 function draw_title(ctx) {
@@ -116,7 +116,7 @@ function download_canvas(bg_canvas, photo_canvas, canvas) {
 
     dl_ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    Materialize.toast('Downloading!');
+    Materialize.toast('Downloading!', 4000);
 
     var dl_link = document.createElement('a');
     dl_link.href = imageURL;

@@ -33,10 +33,9 @@
         <h1>Penguin Classics Cover Generator</h1>
             <form action="#">
             <div class="file-field input-field">
-                <div class="btn blue-grey darken-4">
+                <div class="waves-effect waves-light btn blue-grey darken-4">
                         <span>File</span>
-                        <input type="file" onchange="update_cover(photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'], 
-                            cover_properties['width'], cover_properties['height'])">
+                        <input type="file" onchange="update_cover(photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'], cover_properties['width'], cover_properties['height'])">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="Upload one or more files">
@@ -54,11 +53,14 @@
             Y: <input type="range" class="range-field" oninput="translate_image(photo_canvas, photo_ctx)" id="y_range" min="-100" max="100" value="0">
             <br />
 
-            <input type="text" placeholder="Author" id="author"></input>
-            <br />
-            <input type="text" placeholder="Title" id="title"></input>
+            <div class="input-field col s6">
+                <input type="text" placeholder="Author" id="author"></input>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" placeholder="Title" id="title"></input>
+            </div>
 
-            <button class="waves-effect waves-light btn-large blue-grey darken-4" onclick="download_canvas(bg_canvas, photo_canvas, canvas)">Download</button>
+            <button class="waves-effect waves-light btn-large blue-grey darken-4 col s12" onclick="download_canvas(bg_canvas, photo_canvas, canvas)">Download</button>
         </div>
         </div>
 
