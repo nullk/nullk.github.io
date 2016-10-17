@@ -68,20 +68,10 @@ body, html {
     display: none;
 }
 
-#temp-canvas {
-    display: none;
-}
-#temp-image {
-    display: none;
-}
-
 /* Make placeholder text more readable */
 
 #controls input {
     font-size: 24px;
-}
-#controls input[type="submit"] {
-    font-size: 16px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

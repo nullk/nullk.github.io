@@ -28,7 +28,7 @@ function scale_image(photo_canvas, photo_ctx) {
     cover_properties['width'] = 10 * width;
     cover_properties['height'] = 10 * height;
 
-    update_cover(photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'], 
+    update_cover(photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'],
         cover_properties['width'], cover_properties['height']);
 }
 
@@ -39,7 +39,7 @@ function translate_image(canvas, photo_ctx) {
     cover_properties['x'] = 10 * x;
     cover_properties['y'] = -(5 * y);
 
-    update_cover(photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'], 
+    update_cover(photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'],
         cover_properties['width'], cover_properties['height']);
 }
 
@@ -60,8 +60,7 @@ function update_cover(photo_canvas, photo_ctx, x, y, width, height) {
     if (file) {
         if (file.type == 'image/jpeg' || file.type == 'image/png') {
             reader.readAsDataURL(file);
-        }
-        else {
+        } else {
             Materialize.toast(file.type + ' file type not accepted!', 4000);
             file = null;
         }
@@ -83,22 +82,18 @@ function draw_author(ctx) {
 
     if (author.length > 10) {
         ctx.font = '26px GillSansMT';
-    } 
-    else if (author.length > 20) {
-        ctx.font = '20px GillSansMT';   
-    } 
-    else if (author.length > 30) {
-        ctx.font = '14px GillSansMT';
-    }
-    else {
+    } else if (author.length > 20) {
+        ctx.font = '20px GillSansMT';
+    } else {
         ctx.font = '32px GillSansMT';
     }
 
     ctx.textBaseline = 'alphabetic';
     ctx.fillStyle = '#D28928';
     ctx.textAlign = 'center'
-    ctx.fillText(author, canvas.width/2, 655);
+    ctx.fillText(author, canvas.width / 2, 655);
 }
+
 function draw_title(ctx) {
     title = document.getElementById("title").value;
 
@@ -106,7 +101,7 @@ function draw_title(ctx) {
     ctx.textBaseline = 'alphabetic';
     ctx.fillStyle = '#FFFFFF';
     ctx.textAlign = 'center'
-    ctx.fillText(title, canvas.width/2, 700);
+    ctx.fillText(title, canvas.width / 2, 700);
 }
 
 function download_canvas(bg_canvas, photo_canvas, canvas) {
@@ -125,12 +120,11 @@ function download_canvas(bg_canvas, photo_canvas, canvas) {
 
     var dl_link = document.createElement('a');
     dl_link.href = imageURL;
-    dl_link.download = document.getElementById('title').value+'.png';
+    dl_link.download = document.getElementById('title').value + '.png';
     document.body.appendChild(dl_link);
     dl_link.click();
 }
 
 window.onload = function() {
-    setInterval("update(ctx, canvas)", 1000/60);
+    setInterval("update(ctx, canvas)", 1000 / 60);
 };
-
