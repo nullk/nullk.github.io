@@ -7,6 +7,8 @@ var photo_ctx = photo_canvas.getContext('2d');
 var bg_canvas = document.getElementById('bg_canvas');
 var bg_ctx = bg_canvas.getContext('2d');
 
+var author_color;
+
 var cover_properties = {
     x: 0,
     y: 0,
@@ -17,7 +19,7 @@ var cover_properties = {
 function update(ctx, canvas) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     draw_template();
-    draw_author(ctx);
+    draw_author(ctx, author_color);
     draw_title(ctx);
 }
 
@@ -77,19 +79,23 @@ function draw_template() {
     template.src = 'template.png';
 }
 
-function draw_author(ctx) {
+function change_author_color(color) {
+    author_color = color;
+}
+
+function draw_author(ctx, author_color) {
     author = document.getElementById("author").value;
 
     if (author.length > 10) {
-        ctx.font = '26px GillSansMT';
+        ctx.font = '26px FuturaPTW01-Book';
     } else if (author.length > 20) {
-        ctx.font = '20px GillSansMT';
+        ctx.font = '20px FuturaPTW01-Book';
     } else {
-        ctx.font = '32px GillSansMT';
+        ctx.font = '32px FuturaPTW01-Book';
     }
 
     ctx.textBaseline = 'alphabetic';
-    ctx.fillStyle = '#C6422C';
+    ctx.fillStyle = author_color;
     ctx.textAlign = 'center'
     ctx.fillText(author, canvas.width / 2, 651);
 }
@@ -97,7 +103,7 @@ function draw_author(ctx) {
 function draw_title(ctx) {
     title = document.getElementById("title").value;
 
-    ctx.font = '24px BemboStd';
+    ctx.font = '24px MrsEavesItalic';
     ctx.textBaseline = 'alphabetic';
     ctx.fillStyle = '#FFFFFF';
     ctx.textAlign = 'center'
@@ -127,4 +133,5 @@ function download_canvas(bg_canvas, photo_canvas, canvas) {
 
 window.onload = function() {
     setInterval("update(ctx, canvas)", 1000 / 60);
+    author_color = '#D28928';
 };

@@ -1,21 +1,21 @@
 @font-face {
-    font-family: 'GillSansMT';
-    src: url('../fonts/GillSansMT.eot');
-    src: url('../fonts/GillSansMT.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/GillSansMT.woff') format('woff'),
-        url('../fonts/GillSansMT.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'MrsEavesItalic';
+    src: url('../fonts/MrsEavesItalic.eot');
+    src: url('../fonts/MrsEavesItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/MrsEavesItalic.woff') format('woff'),
+        url('../fonts/MrsEavesItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
 }
 
 @font-face {
-    font-family: 'BemboStd';
-    src: url('../fonts/BemboStd-SemiboldItalic.eot');
-    src: url('../fonts/BemboStd-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/BemboStd-SemiboldItalic.woff') format('woff'),
-        url('../fonts/BemboStd-SemiboldItalic.ttf') format('truetype');
-    font-weight: 600;
-    font-style: italic;
+    font-family: 'FuturaPTW01-Book';
+    src: url('../fonts/FuturaPTW01-Book.eot');
+    src: url('../fonts/FuturaPTW01-Book.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/FuturaPTW01-Book.woff') format('woff'),
+        url('../fonts/FuturaPTW01-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body, html {
@@ -58,7 +58,7 @@ body, html {
 }
 
 #controls h1 {
-    font-family: 'BemboStd';
+    font-family: 'MrsEavesItalic';
     background-color: #EB5530;
     color: white;
     padding: 5px;
