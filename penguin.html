@@ -35,7 +35,8 @@
             <div class="file-field input-field">
                 <div class="waves-effect waves-light btn blue-grey darken-4">
                         <span>File</span>
-                        <input type="file" onchange="load_cover(reader, cover_photo)">
+                        <input type="file" onchange="load_cover(reader, cover_photo);update_cover(cover_photo, photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'],
+                        cover_properties['width'], cover_properties['height']);">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="Upload one or more files">
