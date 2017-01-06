@@ -55,6 +55,7 @@ body, html {
     top: 0px;
     left: 0px;
     z-index: -1;
+    background-color: gray;
 }
 
 #controls h1 {
