@@ -102,12 +102,12 @@ function change_author_color(color) {
 function draw_author(ctx, author_color) {
     author = document.getElementById("author").value;
 
-    if (author.length > 10) {
+    ctx.font = '32px FuturaPTW01-Book';
+    if (author.length > 15) {
         ctx.font = '26px FuturaPTW01-Book';
-    } else if (author.length > 20) {
+    }
+    if (author.length > 30) {
         ctx.font = '20px FuturaPTW01-Book';
-    } else {
-        ctx.font = '32px FuturaPTW01-Book';
     }
 
     ctx.textBaseline = 'alphabetic';
