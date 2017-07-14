@@ -147,7 +147,7 @@ function download_canvas(bg_canvas, photo_canvas, canvas) {
     // a download link is created and opened 
     var dl_link = document.createElement('a');
     dl_link.href = imageURL;
-    dl_link.download = document.getElementById('title').value + '.png';
+    dl_link.download = document.getElementById('title').value + ' by ' + document.getElementById('author').value + '.png';
     document.body.appendChild(dl_link);
     dl_link.click();
 }

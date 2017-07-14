@@ -35,7 +35,7 @@
             <div class="file-field input-field">
                 <div class="waves-effect waves-light btn blue-grey darken-4">
                         <span>File</span>
-                        <input type="file" onchange="load_cover(reader, cover_photo);update_cover(cover_photo, photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'],
+                        <input type="file" onclick="load_loading_bar();" onchange="load_cover(reader, cover_photo);update_cover(cover_photo, photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'],
                         cover_properties['width'], cover_properties['height']);">
                     </div>
                     <div class="file-path-wrapper">
@@ -81,15 +81,13 @@
             <canvas id="dl_canvas" width="500" height="775"></canvas>
         </div>
         </div>
-        
-        <script src="js/main.js" type="text/javascript"></script>
     </div>
 
     <!-- Footer -->
     <div class="row">
-        <h6></h6>
     </div>
     </div>
+    <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
 
