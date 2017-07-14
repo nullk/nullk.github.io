@@ -20,6 +20,13 @@ var cover_properties = {
     height: 533
 };
 
+file_input = document.getElementById("file_input");
+file_input.onchange = function() {
+    load_cover(reader, cover_photo);
+    update_cover(cover_photo, photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'],
+        cover_properties['width'], cover_properties['height']);
+};
+
 function update(ctx, canvas) {
     // updates the following at 60fps 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
