@@ -20,6 +20,7 @@
 
 body, html {
     text-align: center;
+    background-image: url("../ep_naturalwhite.png") !important;
 }
 
 #canvas-wrapper {
@@ -39,7 +40,7 @@ body, html {
 }
 
 #canvas {
-    z-index: 1;
+    z-index: 3;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -48,13 +49,13 @@ body, html {
     position: absolute;
     top: 0px;
     left: 0px;
-    z-index: -2;
+    z-index: 1;
 }
 #canvas-wrapper #bg_canvas {
     position: absolute;
     top: 0px;
     left: 0px;
-    z-index: -1;
+    z-index: 2;
 }
 
 #controls h1 {
