@@ -1,3 +1,4 @@
+/* PENGUIN FONTS */
 @font-face {
     font-family: 'MrsEavesItalic';
     src: url('../fonts/MrsEavesItalic.eot');
@@ -7,7 +8,6 @@
     font-weight: 100;
     font-style: italic;
 }
-
 @font-face {
     font-family: 'FuturaPTW01-Book';
     src: url('../fonts/FuturaPTW01-Book.eot');
@@ -18,9 +18,17 @@
     font-style: normal;
 }
 
+/* OXFORD FONTS */
+@font-face {
+    font-family: 'Capitolium';
+    src: url('../fonts/Capitolium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body, html {
     text-align: center;
-    background-image: url("../ep_naturalwhite.png") !important;
+    background-image: url("../seamless_paper_texture.png") !important;
 }
 
 #canvas-wrapper {
@@ -58,12 +66,29 @@ body, html {
     z-index: 2;
 }
 
-#controls h1 {
+.collapsible {
+    background-color: white;
+}
+.collapsible-header {
+}
+.collapsible-body {
+    width: auto;
+    height: auto;
+}
+
+#header-penguin {
     font-family: 'MrsEavesItalic';
     background-color: #EB5530;
     color: white;
-    padding: 5px;
     font-size: 27px;
+    border: 5px #EB5530 solid;
+}
+#header-oxford {
+    font-family: 'MrsEavesItalic';
+    background-color: #FFFFFF;
+    color: #953C42;
+    font-size: 27px;
+    border: 5px #FFFFFF solid;
 }
 
 .thumb {

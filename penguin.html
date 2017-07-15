@@ -29,10 +29,12 @@
     <div class="container">
     <div class="row">
         <div class="col s6">
+        <!-- CONTROLS -->
         <div id="controls">
-        <h1>Penguin Classics Cover Generator</h1>
-            <form action="#">
+            <!-- FILE UPLOAD -->
+            <div class="card-panel white">
             <div class="file-field input-field">
+            <form>
                 <div class="waves-effect waves-light btn blue-grey darken-4">
                         <span>File</span>
                         <input type="file" id="file_input">
@@ -42,39 +44,52 @@
                     </div>
                 </div>
             </form>
-
-            <br />
-            Width: <input type="range" class="range-field" oninput="scale_image(photo_canvas, photo_ctx)" id="width_range" value="50">
-            <br />
-            Height: <input type="range" class="range-field" oninput="scale_image(photo_canvas, photo_ctx)" id="height_range" value="50">
-            <br />
-            X: <input type="range" class="range-field" oninput="translate_image(photo_canvas, photo_ctx)" id="x_range" min="-100" max="100" value="0">
-            <br />
-            Y: <input type="range" class="range-field" oninput="translate_image(photo_canvas, photo_ctx)" id="y_range" min="-100" max="100" value="0">
-            <br />
-
-            <div class="input-field col s6">
-                <input type="text" id="author"></input>
-                <label for="author">Author</label>
             </div>
-            <div class="col s6">
-                <p>Pick an author color</p>
-                <a class="waves-effect waves-light btn" style="background-color: #C6422C" onclick="change_author_color('#C6422C')">RED</a>
-                <a class="waves-effect waves-light btn" style="background-color: #D28928" onclick="change_author_color('#D28928')">YELLOW</a>
+            </div>
+            <!-- END FILE UPLOAD -->
+
+            <div class="card-panel white">
+                Width: <input type="range" class="range-field" oninput="scale_image(photo_canvas, photo_ctx)" id="width_range" value="50">
+                <br />
+                Height: <input type="range" class="range-field" oninput="scale_image(photo_canvas, photo_ctx)" id="height_range" value="50">
+                <br />
+                X: <input type="range" class="range-field" oninput="translate_image(photo_canvas, photo_ctx)" id="x_range" min="-500" max="500" value="0">
+                <br />
+                Y: <input type="range" class="range-field" oninput="translate_image(photo_canvas, photo_ctx)" id="y_range" min="-500" max="500" value="0">
             </div>
 
-            <div class="input-field col s12">
-                <input type="text" id="title"></input>
-                <label for="title">Title</label>
-            </div>
+        <ul class="collapsible" data-collapsible="accordion">
+            <!-- PENGUIN -->
+            <li>
+                <div class="collapsible-header" id="header-penguin" onclick="switch_brand('penguin');">
+                    Penguin
+                </div>
+                <div class="collapsible-body">
+                    <input type="text" id="penguin_author" placeholder="Author"></input>
+                    <input type="text" id="penguin_title" placeholder="Title"></input>
 
-            <button class="waves-effect waves-light btn-large blue-grey darken-4 col s12" onclick="download_canvas(bg_canvas, photo_canvas, canvas)">Download</button>
+                    <p>Pick an author color</p>
+                    <a class="waves-effect waves-light btn" style="background-color: #C6422C" onclick="change_author_color('#C6422C')">RED</a>
+                    <a class="waves-effect waves-light btn" style="background-color: #D28928" onclick="change_author_color('#D28928')">YELLOW</a>
+                </div>
+            </li>
+            <!-- OXFORD -->
+            <li>
+                <div class="collapsible-header" id="header-oxford" onclick="switch_brand('oxford');">
+                    Oxford World Classics
+                </div>
+                <div class="collapsible-body">
+                    <input type="text" id="oxford_author" placeholder="Author"></input>
+                    <input type="text" id="oxford_title" placeholder="Title"></input>
+                </div>
+            </li>
+        </ul>
         </div>
-        </div>
+        <!-- END CONTROLS -->
 
         <div class="col s6">
         <div id="canvas-wrapper">
-            <canvas id="photo_canvas" width="500" height="533"></canvas>
+            <canvas id="photo_canvas" width="500" height="775"></canvas>
             <canvas id="bg_canvas" width="500" height="775"></canvas>
             <canvas id="canvas" width="500" height="775"></canvas>
             <canvas id="dl_canvas" width="500" height="775"></canvas>
@@ -84,11 +99,15 @@
 
     <!-- Footer -->
     <div class="row">
+        <button class="waves-effect waves-light btn-large blue-grey darken-4" onclick="download_canvas(bg_canvas, photo_canvas, canvas)">Download</button>
     </div>
-    </div>
+
+    <!-- Import main JS script -->
     <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
+
+<!-- Google Analytics -->
 
 <script>
 !function(e,t,a,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src="https://www.google-analytics.com/analytics.js",s.parentNode.insertBefore(o,s)}(window,document,"script",0,"ga"),ga("create","UA-102565435-1","auto"),ga("send","pageview");

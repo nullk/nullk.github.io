@@ -1,3 +1,9 @@
+/*
+
+TODO: Minimize html by generating new brands w/ function
+
+*/
+
 var canvas = document.getElementById('canvas')
 var ctx = canvas.getContext('2d');
 
@@ -20,12 +26,22 @@ var cover_properties = {
     height: 533
 };
 
+// brand
+var brand;
+
+// file input
 file_input = document.getElementById("file_input");
 file_input.onchange = function() {
     load_cover(reader, cover_photo);
     update_cover(cover_photo, photo_canvas, photo_ctx, cover_properties['x'], cover_properties['y'],
                         cover_properties['width'], cover_properties['height']);
 };
+
+function switch_brand(_brand) {
+    brand = _brand;
+    var ctx = document.getElementById('bg_canvas').getContext('2d');
+    ctx.clearRect(0, 0, bg_canvas.width, bg_canvas.height);
+}
 
 function update(ctx, canvas) {
     // updates the following at 60fps 
@@ -67,9 +83,9 @@ function load_cover(reader, cover_photo) {
 
     reader.onloadend = function() {
         cover_photo.src = reader.result;
-        if (cover_photo.width > 1500 || cover_photo.height > 1500) {
+        /*if (cover_photo.width > 1500 || cover_photo.height > 1500) {
             Materialize.toast('Warning: Large image files may be slow to manipulate!', 4000);
-        }
+        }*/
     };    
 
     if (file) {
@@ -99,7 +115,9 @@ function draw_template() {
         ctx.drawImage(this, 0, 0, 500, 775);
     };
 
-    template.src = 'template.png';
+    if (typeof brand !== 'undefined') {
+        template.src = 'template_'+brand+'.png';    
+    }
 }
 
 function change_author_color(color) {
@@ -107,30 +125,55 @@ function change_author_color(color) {
 }
 
 function draw_author(ctx, author_color) {
-    author = document.getElementById("author").value;
+    if (brand == 'penguin') {
+        author = document.getElementById("penguin_author").value;
+        ctx.font = '32px FuturaPTW01-Book';
+        if (author.length > 15) {
+            ctx.font = '26px FuturaPTW01-Book';
+        }
+        if (author.length > 30) {
+            ctx.font = '20px FuturaPTW01-Book';
+        }
 
-    ctx.font = '32px FuturaPTW01-Book';
-    if (author.length > 15) {
-        ctx.font = '26px FuturaPTW01-Book';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillStyle = author_color;
+        ctx.textAlign = 'center'
+        ctx.fillText(author, canvas.width / 2, 651);
     }
-    if (author.length > 30) {
-        ctx.font = '20px FuturaPTW01-Book';
-    }
+    if (brand == 'oxford') {
+        author = document.getElementById("oxford_author").value;
+        ctx.font = '29px Capitolium';
+        if (author.length > 15) {
+            ctx.font = '26px Capitolium';
+        }
+        if (author.length > 30) {
+            ctx.font = '20px Capitolium';
+        }
 
-    ctx.textBaseline = 'alphabetic';
-    ctx.fillStyle = author_color;
-    ctx.textAlign = 'center'
-    ctx.fillText(author, canvas.width / 2, 651);
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillStyle = "#cc2233";
+        ctx.textAlign = 'left'
+        ctx.fillText(author, canvas.width / 13, 568);
+    }
 }
 
 function draw_title(ctx) {
-    title = document.getElementById("title").value;
-
-    ctx.font = '24px MrsEavesItalic';
-    ctx.textBaseline = 'alphabetic';
-    ctx.fillStyle = '#FFFFFF';
-    ctx.textAlign = 'center'
-    ctx.fillText(title, canvas.width / 2, 700);
+    if (brand == 'penguin') {
+        title = document.getElementById("penguin_title").value;
+        ctx.font = '24px MrsEavesItalic';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillStyle = '#FFFFFF';
+        ctx.textAlign = 'center'
+        ctx.fillText(title, canvas.width / 2, 700);
+    }
+    if (brand == 'oxford') {
+        title = document.getElementById("oxford_title").value;
+        ctx.font = '29px Capitolium';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillStyle = '#42393E';
+        ctx.textAlign = 'left'
+        ctx.fillText(title, canvas.width / 13, 602);
+    }
 }
 
 function download_canvas(bg_canvas, photo_canvas, canvas) {
