@@ -27,7 +27,7 @@ var cover_properties = {
 };
 
 // brand
-var brand;
+var brand = '';
 
 // file input
 file_input = document.getElementById("file_input");
@@ -115,7 +115,7 @@ function draw_template() {
         ctx.drawImage(this, 0, 0, 500, 775);
     };
 
-    if (typeof brand !== 'undefined') {
+    if (brand !== '') {
         template.src = 'template_'+brand+'.png';    
     }
 }
@@ -197,7 +197,7 @@ function download_canvas(bg_canvas, photo_canvas, canvas) {
     // a download link is created and opened 
     var dl_link = document.createElement('a');
     dl_link.href = imageURL;
-    dl_link.download = document.getElementById('title').value + ' by ' + document.getElementById('author').value + '.png';
+    dl_link.download = document.getElementById(brand+'_title').value;
     document.body.appendChild(dl_link);
     dl_link.click();
 }
